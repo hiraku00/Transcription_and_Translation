@@ -1,0 +1,132 @@
+ When you interact with these models, naturally, they don't remember what you say before or any of the previous conversation, which is an issue when you're building some applications like CHAPA, and you want to have a conversation with them.
+And so in this section, we'll cover memory, which is basically, how do you remember previous parts of the conversation and feed that into the language model so that they can have this conversational flow as you're interacting with them? Yep.
+So, Lanchain Office multiple sophisticated options to managing these memories.
+Let's jump in and take a look.
+So let me start out by importing my OpenAI API key, and then let me import a few tools that I'll need.
+Let's use as the motivating example for memory, using Lanchain to manage a chat or chatbot conversation.
+So to do that, I'm going to set to OM as a chat interface of OpenAI with Tempshikul0, and I'm going to use the memory as a conversation buffer memory, and you see later what this means.
+And I'm going to build a conversation chain.
+Again, later in this short course, Harrison would dive much more deeply into what exactly is a chain and Lanchain.
+So don't worry too much about the details of this syntax with help, but this builds in LRM.
+And if I start a conversation, the conversation dot predict, give the input, how my name is Andrew.
+Let's see what it says.
+Hello, and just nice to meet you, right? And so on.
+And then let's say I ask it, what is 1 plus 1? 1 plus 1 is 2, and then ask it again.
+You know, what's my name? My name is Andrew, as you mentioned earlier.
+It's a lot more trace of saccharism there, not sure.
+And so if you want, you can change this verbal variable to true to see what Lanchain is actually doing.
+When you run a predict harmony with Andrew, this is the prompt that Lanchain is generating.
+It says, the following is a friendly conversation between human and the AI as top of the, and so on.
+So this is a prompt that Lanchain is generated to have the system have a helpful and friendly conversation.
+And it has to save the conversation and here's the response.
+And when you execute this on the second and third parts of the conversations, it keeps the prompt as follows.
+And notice that by the time I'm uttering, what is my name? This is the third turn.
+This is my third input.
+It has slowed the current conversation as follows.
+How many of you are Andrew? What is 1 plus 1? And so on.
+And so this memory or this history of the conversation gets longer and longer.
+In fact, up on top, I had used the memory variable to store the memory.
+So if I were to print memory dot buffer, it has stored the conversation so far.
+You can also print this out memory dot load memory variables.
+The curly braces here is actually an empty dictionary.
+There's some more advanced features that you can use with a more sophisticated input, but we won't talk about them in this short call.
+So don't worry about why it is an empty curly braces here.
+But this is what Lanchain has remembered in the memory of the conversation so far.
+It's just everything that the AI or that the human has said.
+I encourage you to pause the video and run the code.
+So the way that Lanchain is storing the conversation is with this conversation buffer memory.
+Although it's a used the conversation buffer memory to specify a couple of inputs and outputs.
+This is how you add new things to the memory.
+If you wish to do so explicitly, memory dot save context says, hi, what's up? I know this is not the most exciting conversation, but I wanted to have a short example.
+And with that, this is what the status of the memory is.
+And once again, let me actually show the memory variables.
+Now, if you want to add additional data to the memory, you can keep on saving additional context.
+So conversation goes on, not much just hanging, cool.
+And if you print out the memory, you know, there's no more stuff in it.
+So when you use a large language model for a chat conversation, the large language model itself is actually stateless.
+The language model itself does not remember the conversation you've had so far.
+And each transaction, each call to the API endpoint is independent.
+And chat boss of pure to memory only because there's usually rapid code that provides the full conversation that's been had so far as context to the LM.
+And so the memory can slow explicitly the turns of the utterances so far.
+Hi, my name is Andrew, other interesting to me, you and so on.
+And this memory storage is used as input or additional context to the LM so that they can generate an output as it is just having the mix conversational turn.
+Knowing what's been said before.
+And as a conversation becomes long, the amounts of memory needed becomes really, really long and does the cost of sending a lot of tokens to the LM, which usually charges based on the number of tokens in this process will also become more expensive.
+So that chain provides several convenient kinds of memory to store and accumulate the conversation.
+So far, we've been looking at the conversation buffer memory.
+Let's look at a different type of memory.
+I'm going to import the conversation buffer window memory that only keeps a window of memory.
+It was sent memory to conversational buffer window memory with K equals 1.
+The variable K equals 1 specifies that I wanted to remember just one conversational exchange.
+That is one that turns from me and one that turns from the chatbot.
+Now if I were to have it save context, I was up not much just hanging.
+If I were to look at memory.loverables, it only remembers the most recent utterance.
+Notice this dropped.
+I was up.
+It's just saying, human says not much just hanging in the AI says cool.
+So that's because K was equal to 1.
+So this is a nice feature because it lets you keep track of just the most recent few conversational turns.
+In practice, you probably won't use this with K equals 1.
+You use this with K set to larger number.
+But still, this prevents the memory from growing without limit as a conversation goes longer.
+And so if I were to rerun the conversation that we have just now, let's say hi, my name is Andrew.
+What is 1 plus 1? And now I ask it, what is my name? Because K equals 1, it only remembers the last exchange versus what is 1 plus 1? Yes, it's 1 plus equals 2.
+And it's forgotten this early exchange, which is now now says, sorry, don't have access to that information.
+One thing I hope you would do is post the video.
+Change this to true in the code on the left and rerun this conversation with verbose equals true.
+And then you will see the prompts actually used to generate this.
+And hopefully you see that the memory, when you're calling the LM on what is my name, that the memory has dropped this exchange where I learned what is my name, which is why it now says it doesn't know what is my name.
+With the conversational token buffer memory, the memory will limit the number of tokens saved.
+And because a lot of LM pricing is based on tokens, this maps more directly to the cost of the calls.
+So if I were to say the max token limit is equal to 50, and actually let me inject a few comments.
+So let's say the conversation is AI is what amazing, backpropagations, what beautiful chapels and what charming.
+I use ABC as the first letter of all of these conversational threats.
+We can keep track of what was said when.
+And I run this of a high token limit.
+It has almost a whole conversation.
+If I increase the token limit to 100, it now has a whole conversation, sign of AI is what? If I decrease it, then it chops off the earlier parts of this conversation to retain the number of tokens corresponding to the most recent exchanges, but subject to not exceeding the token limit.
+And in case you're wondering why we needed to specify an LOM is because different LOMs use different ways of counting tokens.
+So this tells it to use the way of counting tokens that the chat open the IOM uses.
+I encourage you to pause the video and run the code and also try modifying the prompt to see if you can get a different output.
+Finally, there's one last type of memory I want to illustrate here, which is the conversation summary buffer memory.
+And the idea is instead of limiting the memory to fix number of tokens based on the most recent other instances or a fixed number of conversation exchanges, let's use an LOM to write a summary of the conversation so far and let that be the memory.
+So here's an example where I'm going to create a long string with someone's schedule.
+There's a meeting and we have a product team, you need your PowerPoint presentation and so on and so on.
+So this is a long string saying what's your schedule? Maybe ending with a new lunch at the Italian restaurant with a customer, bringing that top, show that I was latest LOM demo.
+And so let me use a conversation summary buffer memory with a max token limit of 400 in this case, pretty high token limit.
+And I'm going to insert in a few conversational terms in which we start with hello, what's up, no much just hanging, cool.
+And then what is on the schedule today? And the response is that long schedule.
+So this memory now has quite a lot of text in it.
+In fact, let's take a look at the memory variables.
+It contains that entire piece of text because for each of tokens was sufficient to store all this text.
+But now, if I were to reduce the max token limit, say to 100 tokens, remember this stores the entire conversational history, if I reduce the number of tokens to 100, then the conversation summary buffer memory has actually used an LOM, the open AI endpoint in this case because that's what we have said the LOM to, to actually generate a summary of the conversation so far.
+So the summary is human AI engagement small top before the third day schedule and forms human and morning meeting, blah blah, lunch meeting with customer interest in the AI in latest AI developments.
+And so if we were to have a conversation using this LOM, let me create a conversation chain, same as before.
+And let's say that we were to ask you know input what would be a good demo to show.
+I said verbose goes true, so here's the prompt.
+The LOM thinks the current conversation has had this discussion so far because that's the summary of the conversation.
+And just one note, if you're familiar with the open AI chat API endpoint, there is this specific system message.
+In this example, this is not using the official open AI system message, it's just including it as part of the prompt here, but nonetheless works pretty well.
+And given this prompt, you know, the output is basically cost-interesting our developments, so suggestion showcasing our latest NRP capabilities.
+Okay, that's cool.
+Well, it's you know, making some suggestions to the cool demos and makes you think if I were to meet your customer, I would say, boy, if only there were open source framework available to help me build cool NLP applications using LOMs.
+Good things are lacking.
+And the interesting thing is if you now look at what has happened to the memory, so notice that here it has incorporated the most recent AI system output, whereas my utterance asking what would be a good demo to show has been incorporated into the system message, you know, the overall summary of the conversation so far.
+With the conversation summary buffer memory, what it tries to do is keep the explicit storage of the messages up to the number of tokens we have specified as a limit.
+So, you know, despite the explicit storage, we're trying to cap at 100 tokens because that's what we're with us for.
+And then anything beyond that, it will use CLM to generate a summary, which is what is seen up here.
+And even though I've illustrated these different memories using a chat as a running example, these memories are useful for other applications too, but you might keep on getting new snippets of text or keep on getting new information, such as if your system repeatedly goes online to search for facts, but you want to keep the total memory used to store this growing list of facts as you know, cat and not growing arbitrarily long.
+I encourage you to pause the video and run the code.
+In this video, you saw a few types of memory, including buffer memories that limit based on number of conversation exchanges or tokens, or a memory that can summarize tokens above a certain limit.
+That chain actually supports additional memory types as well.
+One of the most powerful is a vector data memory.
+If you're familiar with word embeddings and text embeddings, the vector database actually stores such embeddings.
+If you don't know what that means, don't worry about it, Harrison will explain it later.
+And it can then retrieve the most relevant blocks of text using the type of vector database for as memory.
+And Lanchine also supports entity memories, which is applicable when you want it to remember details about specific people, specific other entities, such as if you talk about a specific friend, you can have Lanchine remember facts about that friend, which would be an entity in an explicit way.
+While you're implementing applications using Lanchine, you can also use multiple types of memories, such as using one of the types of conversation memory that you saw in this video, plus additionally, entity memory through call individuals.
+So this way you can remember maybe a summary of the conversation, plus an explicit way of storing important facts about important people in the conversation.
+And of course, in addition to using these memory types, it's also not uncommon for developers to store the entire conversation in the conventional database, some sort of key value store or SQL database, so you could refer back to the whole conversation for auditing or for improving the system further.
+And so that's memory types.
+I hope you find this useful building your own applications.
+And now let's go on to the next video to learn about the key building block of Lanchine, namely the chain.

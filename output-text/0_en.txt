@@ -1,0 +1,31 @@
+ Welcome to this short course on Lanchane for large language model application development.
+By prompting an LOM or large language model is now possible to develop AI applications much faster than ever before.
+But an application can require prompting an LOM multiple times and parsing as output.
+And so there's a lot of blue code that needs to be written.
+And created by Harrison Chase makes this development process much easier.
+I'll throw to have Harrison here who had built this short course in collaboration with deep learning.ai to teach how to use this amazing tool.
+Thanks for having me.
+I'm really excited to be here.
+Lanchane started as an open source framework for building LOM applications.
+It came about when I was talking to a bunch of folks in the field who were building more complex applications and saw some common abstractions in terms of how they were being developed.
+And we've been really thrilled at the community adoption of Lanchane so far.
+And so look forward to sharing it with everyone here and look forward to seeing what people build with it.
+And in fact, as a sign of Lanchane's momentum, not only does it have numerous users, but there are also many hundreds of contributors to the open source.
+And this has been instrumental for this rapid rate of development.
+This team really ships code and features at an amazing pace.
+So hopefully, after this short course, you'll be able to quickly put together some really cool applications using Lanchane.
+And for those, maybe you even decide to contribute back to the open source Lanchane effort.
+Lanchane is an open source development framework for building LOM applications.
+We have two different packages, a Python one and a JavaScript one.
+They're focused on composition and modularity.
+So they have a lot of individual components that can be used in conjunction with each other or by themselves.
+And so that's one of the key value ads.
+And then the other key value ad is a bunch of different use cases, so chains of ways of combining these modular components into more end to end applications and making it very easy to get started with those use cases.
+In this class, we'll cover the common components of Lanchane.
+So we'll talk about models.
+We'll talk about prompts, which are how you get models to do useful and interesting things.
+We'll talk about indexes, which are ways of ingesting data so that you can combine it with models.
+And then we'll talk about chains, which are more end to end use cases along with agents, which are a very exciting type of end to end use case, which uses the model as a reasoning engine.
+We're also grateful to Ankush Goldler, who is a co-founder of Lanchane alongside Harrison Chase, for also putting a lot of thought into these materials and helping with the creation of this short course.
+And on the deepline.ai side, Jeff Ludwig, Edith Schu and Diallah as a team have also contributed to these materials.
+And so with that, let's go on to the next video where we'll learn about Lanchane's models, prompts and pauses.
