@@ -149,3 +149,40 @@ LOMや大規模言語モデルをプロンプトにすることで、AIアプリ
 
 # Qiita （in Japanese）
 https://qiita.com/hiraku00/items/0723f02da96fb1ffcdf4
+
+
+# Translation Results
+
+### LangChain for LLM Application Development<br>（LangChain による LLM アプリケーション開発）
+0. [Introduction](https://aiblogging.net/2023/06/deeplearning-ai-langchain-llm-01/)
+1. [Models, Prompts and parsers](https://aiblogging.net/2023/06/deeplearning-ai-langchain-llm-02)
+2. [Memory](https://aiblogging.net/2023/06/deeplearning-ai-langchain-llm-03)
+3. [Chains](https://aiblogging.net/2023/06/deeplearning-ai-langchain-llm-04)
+4. [Question and Answer](https://aiblogging.net/2023/06/deeplearning-ai-langchain-llm-05)
+5. [Evaluation](https://aiblogging.net/2023/06/deeplearning-ai-langchain-llm-06)
+6. [Agents](https://aiblogging.net/2023/06/deeplearning-ai-langchain-llm-07)
+7. [Conclusion](https://aiblogging.net/2023/06/deeplearning-ai-langchain-llm-08)
+
+### How Diffusion Models Work<br>（Diffusion モデルの仕組み）
+0. [Introduction](https://aiblogging.net/2023/06/deeplearning-ai-diffusion-model-01)
+1. [Intuition](https://aiblogging.net/2023/06/deeplearning-ai-diffusion-model-02)
+2. [Sampling](https://aiblogging.net/2023/06/deeplearning-ai-diffusion-model-03)
+3. [Neural Network](https://aiblogging.net/2023/06/deeplearning-ai-diffusion-model-04)
+4. [Training](https://aiblogging.net/2023/06/deeplearning-ai-diffusion-model-05)
+5. [Controlling](https://aiblogging.net/2023/06/deeplearning-ai-diffusion-model-06)
+6. [Speeding Up](https://aiblogging.net/2023/06/deeplearning-ai-diffusion-model-07)
+7. [Summary](https://aiblogging.net/2023/06/deeplearning-ai-diffusion-model-08)
+
+
+### Building Systems with the ChatGPT API<br>（ChatGPT API を使ったシステム構築）
+0. [Introduction](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-01)
+1. [Language Models, the Chat Format and Tokens](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-02)
+2. [Classification](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-03)
+3. [Moderation](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-04)
+4. [Chain of Thought Reasoning](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-05)
+5. [Chaining Prompts](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-06)
+6. [Check Outputs](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-07)
+7. [Evaluation](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-08)
+8. [Evaluation Part I](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-09)
+9. [Evaluation Part II](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-10)
+10. [Summary](https://aiblogging.net/2023/06/deeplearning-ai-chatgpt-api-11)
